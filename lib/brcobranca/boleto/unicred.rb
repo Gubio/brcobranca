@@ -33,16 +33,16 @@ module Brcobranca
 
       # Número seqüencial utilizado para identificar o boleto.
       # @return [String] 11 caracteres numéricos.
-      def numero_documento=(valor)
-        @numero_documento = valor.to_s.rjust(11, '0') if valor
-      end
+      #def numero_documento=(valor)
+      #  @numero_documento = valor.to_s.rjust(11, '0') if valor
+      #end
 
       # Nosso número para exibir no boleto.
       # @return [String]
       # @example
       #  boleto.nosso_numero_boleto #=> ""06/00000004042-8"
       def nosso_numero_boleto
-        "1#{agencia}#{numero_documento}-#{nosso_numero_dv}"
+        "09/1#{agencia}#{numero_documento}-#{nosso_numero_dv}"
       end
 
       # Dígito verificador da agência
