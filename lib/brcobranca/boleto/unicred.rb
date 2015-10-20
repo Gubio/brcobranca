@@ -28,7 +28,7 @@ module Brcobranca
       #
       # @return [String] 2 caracteres numéricos.
       def carteira=(valor)
-        @carteira = valor.to_s.rjust(3, '0') if valor
+        @carteira = valor.to_s.rjust(2, '0') if valor
       end
 
       # Número seqüencial utilizado para identificar o boleto.
