@@ -10,7 +10,7 @@ module Brcobranca
       # Nova instancia do Bradesco
       # @param (see Brcobranca::Boleto::Base#initialize)
       def initialize(campos = {})
-        campos = { carteira: '09' }.merge!(campos)
+        campos = { carteira: '006' }.merge!(campos)
 
         campos.merge!(local_pagamento: 'Pagável preferencialmente na Rede Bradesco ou Bradesco Expresso')
 
@@ -28,13 +28,13 @@ module Brcobranca
       #
       # @return [String] 2 caracteres numéricos.
       def carteira=(valor)
-        @carteira = valor.to_s.rjust(2, '0') if valor
+        @carteira = valor.to_s.rjust(3, '0') if valor
       end
 
       # Número seqüencial utilizado para identificar o boleto.
       # @return [String] 11 caracteres numéricos.
       def numero_documento=(valor)
-        @numero_documento = "1#{agencia}" << valor.to_s.rjust(6, '0') if valor
+        @numero_documento = valor.to_s.rjust(6, '0') if valor
       end
 
       # Nosso número para exibir no boleto.
