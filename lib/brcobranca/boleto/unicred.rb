@@ -45,6 +45,10 @@ module Brcobranca
         "2#{agencia}#{numero_documento}-#{nosso_numero_dv}"
       end
 
+      def nosso_numero_sem_dv
+        "2#{agencia}#{numero_documento}"
+      end
+
       # Dígito verificador da agência
       # @return [Integer] 1 caracteres numéricos.
       def agencia_dv
@@ -91,7 +95,7 @@ module Brcobranca
       #
       # @return [String] 25 caracteres numéricos.
       def codigo_barras_segunda_parte
-        "#{agencia}#{carteira}2#{agencia}#{numero_documento}#{conta_corrente}0"
+        "#{agencia}#{carteira}#{nosso_numero_sem_dv}#{conta_corrente}0"
       end
     end
   end
