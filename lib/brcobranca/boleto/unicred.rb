@@ -45,7 +45,6 @@ module Brcobranca
         "2#{agencia}#{numero_documento}-#{nosso_numero_dv}"
       end
 
-    
       # Dígito verificador da agência
       # @return [Integer] 1 caracteres numéricos.
       def agencia_dv
