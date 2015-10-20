@@ -3,7 +3,7 @@ module Brcobranca
   module Boleto
     class Unicred < Base # Banco UNICRED
       validates_length_of :agencia, maximum: 4, message: 'deve ser menor ou igual a 4 dígitos.'
-      #validates_length_of :numero_documento, maximum: 6, message: 'deve ser menor ou igual a 6 dígitos.'
+      validates_length_of :numero_documento, maximum: 6, message: 'deve ser menor ou igual a 6 dígitos.'
       validates_length_of :conta_corrente, maximum: 7, message: 'deve ser menor ou igual a 7 dígitos.'
       #validates_length_of :carteira, maximum: 2, message: 'deve ser menor ou igual a 2 dígitos.'
 
@@ -34,7 +34,7 @@ module Brcobranca
       # Número seqüencial utilizado para identificar o boleto.
       # @return [String] 11 caracteres numéricos.
       def numero_documento=(valor)
-        "1#{agencia}#{valor}"
+        @numero_documento = "1#{agencia}" << valor.to_s.rjust(6, '0') if valor
       end
 
       # Nosso número para exibir no boleto.
@@ -42,7 +42,7 @@ module Brcobranca
       # @example
       #  boleto.nosso_numero_boleto #=> ""06/00000004042-8"
       def nosso_numero_boleto
-        "09/1#{agencia}#{numero_documento}-#{nosso_numero_dv}"
+        "1#{agencia}#{numero_documento}-#{nosso_numero_dv}"
       end
 
       # Dígito verificador da agência
