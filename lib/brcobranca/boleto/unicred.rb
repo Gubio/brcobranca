@@ -13,6 +13,7 @@ module Brcobranca
         campos = { carteira: '06' }.merge!(campos)
 
         campos.merge!(local_pagamento: 'Pagável preferencialmente na Rede Bradesco ou Bradesco Expresso')
+        campos.merge!(aceite: 'N')
 
         super(campos)
       end
@@ -37,15 +38,12 @@ module Brcobranca
         @numero_documento = valor.to_s.rjust(11, '0') if valor
       end
 
-      def aceite
-        "N"
-      end
       # Nosso número para exibir no boleto.
       # @return [String]
       # @example
       #  boleto.nosso_numero_boleto #=> ""06/00000004042-8"
       def nosso_numero_boleto
-        "006/#{numero_documento}-#{nosso_numero_dv}"
+        "#{carteira}#{numero_documento}-#{nosso_numero_dv}"
       end
 
       # Dígito verificador da agência
