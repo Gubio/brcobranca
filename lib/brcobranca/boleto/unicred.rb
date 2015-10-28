@@ -43,7 +43,7 @@ module Brcobranca
       # @example
       #  boleto.nosso_numero_boleto #=> ""06/00000004042-8"
       def nosso_numero_boleto
-        "#{carteira}#{numero_documento}-#{nosso_numero_dv}"
+        "#{numero_documento}-#{nosso_numero_dv}"
       end
 
       # Dígito verificador da agência
@@ -92,7 +92,7 @@ module Brcobranca
       #
       # @return [String] 25 caracteres numéricos.
       def codigo_barras_segunda_parte
-        "#{agencia}#{carteira}2#{numero_documento}#{conta_corrente}0"
+        "#{agencia}#{carteira}#{numero_documento}#{conta_corrente}0"
       end
     end
   end
