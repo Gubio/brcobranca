@@ -14,7 +14,7 @@ module Brcobranca
 
         campos.merge!(local_pagamento: 'Pagável preferencialmente na Rede Bradesco ou Bradesco Expresso')
         campos.merge!(aceite: 'N')
-        campos.merge!(data_processamento: Tine.now.strftime("%d/%m/%Y"))
+        campos.merge!(data_processamento: Time.now.strftime("%d/%m/%Y"))
         super(campos)
       end
 
