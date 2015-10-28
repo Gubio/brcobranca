@@ -1,4 +1,6 @@
 # -*- encoding: utf-8 -*-
+require 'date'
+
 module Brcobranca
   module Boleto
     class Unicred < Base # Banco UNICRED
