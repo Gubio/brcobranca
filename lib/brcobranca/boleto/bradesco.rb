@@ -10,7 +10,7 @@ module Brcobranca
       # Nova instancia do Bradesco
       # @param (see Brcobranca::Boleto::Base#initialize)
       def initialize(campos = {})
-        campos = { carteira: '06' }.merge!(campos)
+        campos = { carteira: '09' }.merge!(campos)
 
         campos.merge!(local_pagamento: 'Pagável preferencialmente na Rede Bradesco ou Bradesco Expresso')
 

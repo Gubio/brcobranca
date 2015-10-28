@@ -37,12 +37,15 @@ module Brcobranca
         @numero_documento = valor.to_s.rjust(11, '0') if valor
       end
 
+      def aceite
+        "N"
+      end
       # Nosso número para exibir no boleto.
       # @return [String]
       # @example
       #  boleto.nosso_numero_boleto #=> ""06/00000004042-8"
       def nosso_numero_boleto
-        "#{numero_documento}-#{nosso_numero_dv}"
+        "006/#{numero_documento}-#{nosso_numero_dv}"
       end
 
       # Dígito verificador da agência
@@ -91,7 +94,7 @@ module Brcobranca
       #
       # @return [String] 25 caracteres numéricos.
       def codigo_barras_segunda_parte
-        "#{agencia}#{carteira}#{numero_documento}#{conta_corrente}0"
+        "#{agencia}#{carteira}2#{numero_documento}#{conta_corrente}0"
       end
     end
   end

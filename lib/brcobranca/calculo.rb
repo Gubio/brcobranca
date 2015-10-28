@@ -18,9 +18,12 @@ module Brcobranca
         multiplicador = multiplicador == 2 ? 1 : 2
       end
 
+      
       valor = (10 - (total % 10))
       valor == 10 ? 0 : valor
+
     end
+
 
     # Calcula o módulo 11 segundo a BACEN
     #
