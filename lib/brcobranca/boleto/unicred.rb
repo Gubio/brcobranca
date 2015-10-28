@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-require 'date'
-
 module Brcobranca
   module Boleto
     class Unicred < Base # Banco UNICRED
@@ -16,7 +14,7 @@ module Brcobranca
 
         campos.merge!(local_pagamento: 'Pagável preferencialmente na Rede Bradesco ou Bradesco Expresso')
         campos.merge!(aceite: 'N')
-        campos.merge!(data_processamento: Data.today)
+        campos.merge!(data_processamento: Tine.now.strftime("%d/%m/%Y"))
         super(campos)
       end
 
