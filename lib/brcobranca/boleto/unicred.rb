@@ -69,7 +69,7 @@ module Brcobranca
       def conta_corrente_dv
         conta_corrente.modulo11(
           multiplicador: [2, 3, 4, 5, 6, 7],
-          mapeamento: { 10 => 'P', 11 => 0 }
+          mapeamento: { 10 => 0, 11 => 0 }
         ) { |total| 11 - (total % 11) }
       end
 
@@ -86,7 +86,8 @@ module Brcobranca
       # Posição | Tamanho | Conteúdo<br/>
       # 20 a 23 | 4 |  Agência Cedente (Sem o digito verificador, completar com zeros a esquerda quando  necessário)<br/>
       # 24 a 25 | 2 |  Carteira<br/>
-      # 26 a 36 | 11 |  Número do Nosso Número(Sem o digito verificador)<br/>
+      # 26 a 26 | 1 |  Não verificada deve ser 2
+      # 27 a 36 | 11 |  Número do Nosso Número(Sem o digito verificador)<br/>
       # 37 a 43 | 7 |  Conta do Cedente (Sem o digito verificador, completar com zeros a esquerda quando necessário)<br/>
       # 44 a 44 | 1 |  Zero<br/>
       #
