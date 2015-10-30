@@ -59,7 +59,7 @@ module Brcobranca
       # @return [Integer] 1 caracteres numéricos.
       def nosso_numero_dv
         "#{carteira}#{numero_documento}".modulo11(
-          multiplicador: [2, 3, 4, 5, 6, 7],
+          multiplicador: [7, 6, 5, 4, 3, 2],
           mapeamento: { 10 => 'P', 11 => 0 }
         ) { |total| 11 - (total % 11) }
       end
