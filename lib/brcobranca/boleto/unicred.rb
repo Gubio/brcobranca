@@ -58,7 +58,7 @@ module Brcobranca
       # Dígito verificador do nosso número
       # @return [Integer] 1 caracteres numéricos.
       def nosso_numero_dv
-        "#{carteira}#{numero_documento}".modulo11(
+        "#{carteira}2#{numero_documento}".modulo11(
           multiplicador: [2, 3, 4, 5, 6, 7],
           mapeamento: { 10 => 'P', 11 => 0 }
         ) { |total| 11 - (total % 11) }
