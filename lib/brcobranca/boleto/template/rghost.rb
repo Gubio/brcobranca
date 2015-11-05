@@ -231,7 +231,7 @@ module Brcobranca
           if boleto.avalista && boleto.avalista_documento
             doc.moveto x: '2.4 cm', y: '7.47 cm'
             doc.show "#{boleto.avalista} - #{boleto.avalista_documento}"
-            doc.moveto x: '2.4 cm', y: '6.47 cm'
+            doc.moveto x: '2.4 cm', y: '7.20 cm'
             doc.show "dsadasd dsadasd asdasdasd as d sd sad as  ads"
             #doc.show "#{boleto.avalista_endereco}"
           end
